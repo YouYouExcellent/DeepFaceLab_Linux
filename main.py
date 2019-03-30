@@ -85,6 +85,7 @@ if __name__ == "__main__":
                 'model_name'             : arguments.model_name,
                 'no_preview'             : arguments.no_preview,
                 'debug'                  : arguments.debug,
+                'execute_programs'       : [ [int(x[0]), x[1] ] for x in arguments.execute_program ]
                 }
         device_args = {'cpu_only'  : arguments.cpu_only,
                        'force_gpu_idx' : arguments.force_gpu_idx,
@@ -101,6 +102,7 @@ if __name__ == "__main__":
     p.add_argument('--debug', action="store_true", dest="debug", default=False, help="Debug samples.")
     p.add_argument('--cpu-only', action="store_true", dest="cpu_only", default=False, help="Train on CPU.")
     p.add_argument('--force-gpu-idx', type=int, dest="force_gpu_idx", default=-1, help="Force to choose this GPU idx.")
+    p.add_argument('--execute-program', dest="execute_program", default=[], action='append', nargs='+')
     p.set_defaults (func=process_train)
 
     def process_convert(arguments):
@@ -136,7 +138,7 @@ if __name__ == "__main__":
     p = videoed_parser.add_parser( "extract-video", help="Extract images from video file.")
     p.add_argument('--input-file', required=True, action=fixPathAction, dest="input_file", help="Input file to be processed. Specify .*-extension to find first file.")
     p.add_argument('--output-dir', required=True, action=fixPathAction, dest="output_dir", help="Output directory. This is where the extracted images will be stored.")
-    p.add_argument('--ouptut-ext', dest="output_ext", default=None, help="Image format (extension) of output files.")
+    p.add_argument('--output-ext', dest="output_ext", default=None, help="Image format (extension) of output files.")
     p.add_argument('--fps', type=int, dest="fps", default=None, help="How many frames of every second of the video will be extracted. 0 - full fps.")
     p.set_defaults(func=process_videoed_extract_video)
 
