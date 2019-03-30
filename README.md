@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Installation for Ubuntu 16.04
 
 An installation script has been created to automatically install all of the required dependencies for Ubuntu 16.04. Clone the repository and run ``ubuntu16.04-cuda9-installer.sh`` from the root directory of DeepFaceLab_Linux. 
