@@ -7,11 +7,11 @@ import cv2
 from tqdm import tqdm
 
 try:
-    import IPython #if success we are in colab
-    from IPython.display import display, clear_output
-    import PIL
-    import matplotlib.pyplot as plt
-    is_colab = True
+    #import IPython #if success we are in colab
+    #from IPython.display import display, clear_output
+    #import PIL
+    #import matplotlib.pyplot as plt
+    is_colab = False
 except:
     is_colab = False
 

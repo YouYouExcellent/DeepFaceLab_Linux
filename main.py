@@ -15,8 +15,6 @@ class fixPathAction(argparse.Action):
         setattr(namespace, self.dest, os.path.abspath(os.path.expanduser(values)))
 
 if __name__ == "__main__":
-    multiprocessing.set_start_method("spawn")
-
     os_utils.set_process_lowest_prio()
     parser = argparse.ArgumentParser()
 
